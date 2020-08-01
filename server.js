@@ -2,7 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://user1:password1@ds121665.mlab.com:21665/heroku_g0sp0r09", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
